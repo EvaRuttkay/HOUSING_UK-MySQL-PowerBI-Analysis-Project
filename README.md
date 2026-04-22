@@ -12,19 +12,119 @@ This project generates synthetic housing data (properties, repairs, tenants), lo
 ---
 
 ### 🔎 Project overview
-#### 🧭 Python
-You get three core datasets:
-- **Properties** – basic property info and condition
-- **Repairs** – repair requests, costs, and completion dates
-- **Tenants** – satisfaction and complaints
+You get three core datasets. These are generated with Python (Faker), stored as CSV, then loaded into **MySQL** and visualised in **Power BI**.
 
-These are generated with Python (Faker), stored as CSV, then loaded into **MySQL** and visualised in **Power BI**.
+### 🧭 Python
+
+**1. Properties** – basic property info and condition
+- **code example**
+```py
+num_properties = 100
+properties = []
+
+for i in range(1, num_properties + 1):
+    build_year = random.randint(1960, 2023)
+
+    # Randomly introduce missing inspection dates
+    last_inspection = fake.date_between(start_date='-2y', end_date='today')
+    if random.random() < 0.1:  # 10% missing
+        last_inspection = None
+
+    properties.append({
+        'PropertyID': i,
+        'Address': fake.address().replace('\n', ', '),
+        'PropertyType': random.choice(['Flat', 'House']),
+        'BuildYear': build_year,
+        'Last_inspection_date': last_inspection.strftime('%Y-%m-%d') if last_inspection else None,
+        'ConditionRating': random.randint(1, 5)
+    })
+
+df_properties = pd.DataFrame(properties)
+```
+
+**2. Repairs** – repair requests, costs, and completion dates
+- **code example**
+```py
+num_repairs = 500
+repairs = []
+
+for i in range(1, num_repairs + 1):
+    property_id = random.randint(1, num_properties)
+    request_date = fake.date_between(start_date='-2y', end_date='today')
+
+    priority = random.choice(['Routine', 'Urgent', 'Emergency'])
+
+    # Completion date logic
+    if priority == 'Emergency':
+        completion_date = request_date + timedelta(days=random.randint(1, 3))
+    else:
+        completion_date = request_date + timedelta(days=random.randint(5, 15))
+
+    # Introduce missing completion dates (e.g., still open)
+    if random.random() < 0.05:  # 5% missing
+        completion_date = None
+
+    repair_type = random.choice(['Plumbing', 'Electrical', 'Heating', 'Roof'])
+
+    base_cost = {
+        'Plumbing': 100,
+        'Electrical': 200,
+        'Heating': 400,
+        'Roof': 600
+    }
+    cost = base_cost[repair_type] + random.randint(-50, 200)
+
+    repairs.append({
+        'RepairID': i,
+        'PropertyID': property_id,
+        'RequestDate': request_date.strftime('%Y-%m-%d'),
+        'CompletionDate': completion_date.strftime('%Y-%m-%d') if completion_date else None,
+        'RepairType': repair_type,
+        'Priority': priority,
+        'Cost': cost
+    })
+
+df_properties_repairs = pd.DataFrame(repairs)
+```
+
+**3. Tenants** – satisfaction and complaints
+- **code example**
+```py
+tenants = []
+
+for i in range(1, num_properties + 1):
+    satisfaction = random.randint(1, 5)
+
+    # Introduce missing satisfaction scores
+    if random.random() < 0.05:
+        satisfaction = None
+
+    tenants.append({
+        'TenantID': i,
+        'PropertyID': i,
+        'ComplaintFlag': 'Yes' if satisfaction and satisfaction <= 2 else 'No',
+        'SatisfactionScore': satisfaction
+    })
+
+df_tenants = pd.DataFrame(tenants)
+```
+
 
 ### 🗂️ Database Overview & Structure
 
-### MySQL schema
+- **Example MySQL schemas**:
+```sql
+CREATE TABLE Properties (
+    PropertyID INT PRIMARY KEY,
+    Address VARCHAR(255) NOT NULL,
+    PropertyType ENUM('Flat', 'House') NOT NULL,
+    BuildYear INT NOT NULL,
+    Last_inspection_date DATE NULL,
+    ConditionRating INT CHECK (ConditionRating BETWEEN 1 AND 5)
+);
+```
 
-#### 📝 Example Queries
+- **Example Queries**:
 
 **1. Total repair cost by year**
 ```sql
@@ -63,7 +163,7 @@ FROM Tenants t
 JOIN Properties p ON t.PropertyID = p.PropertyID
 GROUP BY p.ConditionRating
 ```
-**5. SATISFACTION VS ANNUAL REPAIR COST PER PROPERTY**
+**5. Satisfaction vs annual repair cost per property**
 ```sql
 SELECT 
     p.PropertyID,
@@ -74,6 +174,7 @@ LEFT JOIN Tenants t ON p.PropertyID = t.PropertyID
 LEFT JOIN Repairs r ON p.PropertyID = r.PropertyID
 GROUP BY p.PropertyID;
 ```
+
 ---
 ## 🛠️Tech stack
 
@@ -107,7 +208,7 @@ GROUP BY p.PropertyID;
 
 ## 📦 Requirements
 
-`Python` &nbsp;
+`Python` &nbsp; 
 
 `MySQL` &nbsp;
 
