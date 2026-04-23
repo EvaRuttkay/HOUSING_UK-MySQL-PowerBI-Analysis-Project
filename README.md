@@ -156,6 +156,8 @@ GROUP BY PropertyID
 ORDER BY TotalRepairCost DESC
 LIMIT 10;
 ```
+<img width="235" height="166" alt="TOP_10_by_Repair" src="https://github.com/user-attachments/assets/2670c5e3-c365-4395-a852-2075f86854a1" />
+
 **4. Complaint rate by condition rating** 
 ```sql
 SELECT 
@@ -167,6 +169,8 @@ FROM Tenants t
 JOIN Properties p ON t.PropertyID = p.PropertyID
 GROUP BY p.ConditionRating
 ```
+<img width="299" height="166" alt="Complaint_rate_by_Rating" src="https://github.com/user-attachments/assets/cdb39232-b8e8-41bc-b49d-218ade6ecc21" />
+
 **5. Satisfaction vs annual repair cost per property**
 ```sql
 SELECT 
