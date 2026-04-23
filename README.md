@@ -200,10 +200,17 @@ GROUP BY p.PropertyID;
 
 ---
 ## 📌 How to Use
-## 3. Python data generation
 1. Download or clone this repository.
 2. Install Python dependencies.
-3. Run the analysis.
+3. Install Pandas, Numpy, Faker.
+4. Run the generator.
+5. Set up Mysql.
+6. Create Database, tables and load CSVs into Mysql.
+7. Validate the data.
+8. Open Power BI Desktop.
+9. Get data from Mysql Database.
+10. Load the three tables.
+11. Build dashboards & DAX measures.
 
 
 ## 📦 Requirements
