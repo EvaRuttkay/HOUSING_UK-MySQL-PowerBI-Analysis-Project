@@ -2,16 +2,16 @@
 # HOUSING UK MySQL/PowerBI Analysis Project
 This project generates synthetic housing data (properties, repairs, tenants), loads it into MySQL, and uses it for analytics and Power BI dashboards, including data‑quality monitoring.
 
-### 🎯 Key Skills Demonstrated:
+## 🎯 Key Skills Demonstrated:
 `Python` &nbsp;`Pandas` &nbsp;`Numpy` &nbsp;`Faker` &nbsp;`MySQL` &nbsp; `SQL querying and joins` &nbsp; `Exploratory data analysis` &nbsp; `Query structuring` &nbsp; `Data aggregation and filtering` &nbsp; `Power BI` &nbsp; `Dashboards` &nbsp; `DAX` &nbsp; 
 
-### 🧰 Tools & Technologies
+## 🧰 Tools & Technologies
 - **Python:** Pandas, Numpy, Faker
 - **SQL:** MySQL, Mysql Workbench
 - **Power BI:** Power Query Editor, Dashboard, DAX
 ---
 
-### 🔎 Project overview
+## 🔎 Project overview
 You get three core datasets. These are generated with Python (Faker), stored as CSV, then loaded into **MySQL** and visualised in **Power BI**.
 
 ### 🧭 Python
@@ -182,24 +182,59 @@ LEFT JOIN Tenants t ON p.PropertyID = t.PropertyID
 LEFT JOIN Repairs r ON p.PropertyID = r.PropertyID
 GROUP BY p.PropertyID;
 ```
-### 📈 Power BI Dashboard
+### 📊 Power BI Dashboard
+
+### Dashboard Pages
+
+**1. Executive Summary**
+High‑level KPIs:
+- Total Repair Cost
+- Open Repairs
+- Avg Days to Complete
+- Avg Tenant Satisfaction
+- Repairs by Priority & Type
+
+**2. Repairs Performance**
+Operational insights:
+- Completion time analysis
+- Cost by repair type
+- Open repairs table
+- Cost vs duration scatter
+
+**3. Property Insights**
+Property‑level analytics:
+- Top/Bottom properties by repair cost
+- Build year trends
+- Condition rating distribution
+
+**4. Tenant Satisfaction**
+Customer experience:
+- Satisfaction distribution
+- Complaint rate
+- Satisfaction vs repair cost
+
+**5. Data Quality Dashboard**
+Data completeness & validation:
+- Missing values
+- Invalid dates
+- Duplicate IDs
+- Data quality score
 
 
----
+### Dashboard Preview
 
-## 📊 Dashboard Preview
-
-### **Executive Summary**
+#### **Executive Summary**
 ![Executive Summary](images/executive_summary.png)
 
-### **Repairs Performance**
+#### **Repairs Performance**
 ![Repairs Performance](images/repairs_performance.png)
 
-### **Tenant Satisfaction**
+#### **Tenant Satisfaction**
 ![Tenant Satisfaction](images/tenant_satisfaction.png)
 
-### **Data Quality Dashboard**
+#### **Data Quality Dashboard**
 ![Data Quality](images/data_quality.png)
+
 ---
 ## 🛠️Tech stack
 
