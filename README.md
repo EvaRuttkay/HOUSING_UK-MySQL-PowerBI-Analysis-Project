@@ -112,6 +112,10 @@ df_tenants = pd.DataFrame(tenants)
 
 ### 🗂️ Database Overview & Structure
 
+- **EER Diagram**
+<img width="440" height="343" alt="EER Diagram" src="https://github.com/user-attachments/assets/3e1a9ac5-8599-4bee-9ba6-dd71eda9584d" />
+
+
 - **Example MySQL schemas**:
 ```sql
 CREATE TABLE Properties (
