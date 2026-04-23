@@ -3,7 +3,7 @@
 This project generates synthetic housing data (properties, repairs, tenants), loads it into MySQL, and uses it for analytics and Power BI dashboards, including data‑quality monitoring.
 
 ### 🎯 Key Skills Demonstrated:
-`Python` &nbsp;`Pandas` &nbsp;`Numpy` &nbsp;`Faker` &nbsp;`MySQL` &nbsp; `SQL querying and joins` &nbsp; `Exploratory data analysis` &nbsp; `Query structuring` &nbsp; `Data aggregation and filtering` &nbsp; `Power BI` &nbsp; `Dashboard` &nbsp; `DAX` &nbsp; 
+`Python` &nbsp;`Pandas` &nbsp;`Numpy` &nbsp;`Faker` &nbsp;`MySQL` &nbsp; `SQL querying and joins` &nbsp; `Exploratory data analysis` &nbsp; `Query structuring` &nbsp; `Data aggregation and filtering` &nbsp; `Power BI` &nbsp; `Dashboards` &nbsp; `DAX` &nbsp; 
 
 ### 🧰 Tools & Technologies
 - **Python:** Pandas, Numpy, Faker
