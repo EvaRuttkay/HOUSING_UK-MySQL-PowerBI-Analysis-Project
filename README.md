@@ -174,14 +174,6 @@ LEFT JOIN Tenants t ON p.PropertyID = t.PropertyID
 LEFT JOIN Repairs r ON p.PropertyID = r.PropertyID
 GROUP BY p.PropertyID;
 ```
-
----
-## 🛠️Tech stack
-
-- `Python (Pandas, Faker, Numpy)` &nbsp; 
-- `MySQL (data storage & SQL analytics)` &nbsp; 
-- `Power BI (dashboards & data quality reports)` &nbsp;
-
 ### 📈 Power BI Dashboard
 
 
@@ -200,7 +192,12 @@ GROUP BY p.PropertyID;
 
 ### **Data Quality Dashboard**
 ![Data Quality](images/data_quality.png)
+---
+## 🛠️Tech stack
 
+- `Python (Pandas, Faker, Numpy)` &nbsp; 
+- `MySQL (data storage & SQL analytics)` &nbsp; 
+- `Power BI (dashboards & data quality reports)` &nbsp;
 ---
 ## 📌 How to Use
 1. Download or clone this repository.
