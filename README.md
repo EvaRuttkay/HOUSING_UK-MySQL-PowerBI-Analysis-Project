@@ -178,9 +178,12 @@ GROUP BY p.PropertyID;
 ---
 ## 🛠️Tech stack
 
-- **Python** (pandas, Faker, numpy) 
-- **MySQL** (data storage & SQL analytics)
-- **Power BI** (dashboards & data‑quality reports)
+- `Python (Pandas, Faker, Numpy)` &nbsp; 
+- `MySQL (data storage & SQL analytics)` &nbsp; 
+- `Power BI (dashboards & data quality reports)` &nbsp;
+
+### 📈 Power BI Dashboard
+
 
 ---
 
@@ -212,11 +215,8 @@ GROUP BY p.PropertyID;
 10. Load the three tables.
 11. Build dashboards & DAX measures.
 
+## 🤝 Contact
 
-## 📦 Requirements
-
-`Python` &nbsp; 
-
-`MySQL` &nbsp;
-
-`Power BI Desktop` &nbsp;
+* [Project created by **EvaRuttkay**.](https://github.com/EvaRuttkay)
+  
+* [Link to LinkedIn](https://www.linkedin.com/in/evaruttkay)
