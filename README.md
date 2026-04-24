@@ -186,8 +186,11 @@ GROUP BY p.PropertyID;
 
 ### Dashboard Pages
 
-**1. Executive Summary**
-High‑level KPIs:
+**1. Executive Summary** 
+
+Give a quick snapshot of overall performance: cost, workload, speed, satisfaction.
+
+**1. High‑level KPIs**:
 - Total Repair Cost
 - Open Repairs
 - Avg Days to Complete
@@ -213,13 +216,36 @@ Customer experience:
 - Complaint rate
 - Satisfaction vs repair cost
 
-**5. Data Quality Dashboard**
-Data completeness & validation:
-- Missing values
-- Invalid dates
-- Duplicate IDs
-- Data quality score
+### DAX Example
+```DAX
+Total Repair Cost = SUM(Repairs[Cost])
 
+Open Repairs =
+COUNTROWS(
+    FILTER(Repairs, ISBLANK(Repairs[CompletionDate]))
+)
+
+Avg Days to Complete =
+AVERAGEX(
+    FILTER(Repairs, NOT ISBLANK(Repairs[CompletionDate])),
+    DATEDIFF(Repairs[RequestDate], Repairs[CompletionDate], DAY)
+)
+
+Average Satisfaction = AVERAGE(Tenants[SatisfactionScore])
+
+Repairs Count = COUNTROWS(Repairs)
+
+Complaint Count =
+COUNTROWS(
+    FILTER(Tenants, Tenants[ComplaintFlag] = "Yes")
+)
+
+Tenant Count = COUNTROWS(Tenants)
+
+Complaint Rate =
+DIVIDE([Complaint Count], [Tenant Count])
+
+```
 
 ### Dashboard Preview
 
@@ -231,9 +257,6 @@ Data completeness & validation:
 
 #### **Tenant Satisfaction**
 ![Tenant Satisfaction](images/tenant_satisfaction.png)
-
-#### **Data Quality Dashboard**
-![Data Quality](images/data_quality.png)
 
 ---
 ## 🛠️Tech stack
