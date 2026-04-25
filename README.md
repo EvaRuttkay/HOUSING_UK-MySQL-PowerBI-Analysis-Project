@@ -216,7 +216,7 @@ Customer experience:
 - Complaint rate
 - Satisfaction vs repair cost
 
-### DAX Example
+### Example DAX
 ```DAX
 Total Repair Cost = SUM(Repairs[Cost])
 
