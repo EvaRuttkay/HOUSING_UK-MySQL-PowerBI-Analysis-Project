@@ -250,13 +250,14 @@ DIVIDE([Complaint Count], [Tenant Count])
 ### Dashboard Preview
 
 #### **Executive Summary**
-![Executive Summary](images/executive_summary.png)
+<img width="468" height="210" alt="High level KPI" src="https://github.com/user-attachments/assets/75061280-2176-463c-888b-f071610eaae7" />
 
 #### **Repairs Performance**
-![Repairs Performance](images/repairs_performance.png)
+<img width="468" height="210" alt="Repairs Performance" src="https://github.com/user-attachments/assets/fe9d5117-f78e-4332-a831-91cc89edcdfd" />
 
 #### **Tenant Satisfaction**
-![Tenant Satisfaction](images/tenant_satisfaction.png)
+<img width="468" height="210" alt="Property_insights" src="https://github.com/user-attachments/assets/008c029c-ae0f-408a-b933-bf620ae89ef8" />
+
 
 ---
 ## 🛠️Tech stack
