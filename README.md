@@ -116,7 +116,7 @@ df_tenants = pd.DataFrame(tenants)
 <img width="440" height="343" alt="EER Diagram" src="https://github.com/user-attachments/assets/3e1a9ac5-8599-4bee-9ba6-dd71eda9584d" />
 
 
-- **Example MySQL schemas**:
+- **MySQL schemas example**:
 ```sql
 CREATE TABLE Properties (
     PropertyID INT PRIMARY KEY,
@@ -128,7 +128,7 @@ CREATE TABLE Properties (
 );
 ```
 
-- **Example Queries**:
+- **Queries example**:
 
 **1. Total repair cost by year**
 ```sql
@@ -216,7 +216,7 @@ Customer experience:
 - Complaint rate
 - Satisfaction vs repair cost
 
-### Example DAX
+### DAX example
 ```DAX
 Total Repair Cost = SUM(Repairs[Cost])
 
